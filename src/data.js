@@ -1,4 +1,5 @@
-export default [
+var data=
+[
     {
         "id":"1",
         "name": "Elit Company",
@@ -135,3 +136,5 @@ export default [
         "stars": "5"
     }
 ];
+
+export default data
