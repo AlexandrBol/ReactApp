@@ -10,9 +10,9 @@ registerServiceWorker();
 
 
 export default class HotelsList extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     render() {
         const PostHotel = this.props.hotels.map(hotel =>
