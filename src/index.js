@@ -10,9 +10,10 @@ import hotels from "./data";
 import List from './HotelsList';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import AddHotel from "./AddHotel";
+//import AddHotel from "./AddHotel";
 
 import Calculator from "./InputData";
+import Clock from "./Clock";
 
 registerServiceWorker();
 
@@ -20,7 +21,16 @@ function App() {
     // console.log(hotels[0])
     return (
         <div className="container">
+            <Clock/>
             <Calculator/>
+            <hr/>
+        </div>
+    )
+}
+function App1() {
+    // console.log(hotels[0])
+    return (
+        <div className="container">
             <hr/>
             {/*<AddHotel/>*/}
             <List hotels={hotels}/>
@@ -29,6 +39,6 @@ function App() {
 }
 
 ReactDOM.render(<App/>,document.getElementById("add"));
-//ReactDOM.render(<App/>,document.getElementById("view"));
+ReactDOM.render(<App1/>,document.getElementById("view"));
 
 export default App
