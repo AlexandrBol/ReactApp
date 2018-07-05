@@ -1,88 +1,97 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 //import $ from 'jquery';
-
+import { Button, Form} from 'react-bootstrap';
 import './index.css';
-
 import registerServiceWorker from './registerServiceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 registerServiceWorker();
 
-class AddHotel extends PureComponent {
+class AddHotel extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            hotels: props.hotels,
-            newHotel: {
-                id: '',
-                name: '',
-                adress: '',
-                phone: '',
-                email: '',
-                description: '',
-                stars: ''
-            }
+            //  hotels: props.hotels
+            id: "123",
+            name: "qwerty",
+            adress: "qwerty",
+            phone: "123456",
+            email: "qwerty",
+            description: "123",
+            stars: "qwerty"
         }
+        console.log(this.state);
+    };
 
-        this.handleInput = this.handleInput.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    // console.log(this.state.h);
+    //this.handleSubmit = this.handleSubmit.bind(this);
 
-    handleSubmit(e) {
-        e.preventDefault();
-        const {hotels, newHotel} = this.state;
+    procesData = () => {
+        console.log(this.state.id)
         this.setState({
-            hotels: [...hotels, newHotel],
-        }, () => {
-            for (let val in newHotel) {
-                newHotel[val] = ''; // Clear the values...
-            }
-            this.setState({newHotel});
+            id: this.state.id,
+            name: this.state.name,
+            adress: this.state.adress,
+            phone: this.state.phone,
+            email: this.state.email,
+            description: this.state.description,
+            stars: this.state.stars
         });
-    }
-
-    handleInput(e, element) {
-        const {newHotel} = this.state;
-        newHotel[element] = e.target.value;
-        this.setState({newHotel});
-    }
+        console.log(this.state);
+    };
 
     render() {
-        const {newHotel } = this.state;
-        const {id, name, adress, phone, email, description, stars} = newHotel;
-
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor="id">
-                    <p>id</p>
-                    <input type="text" ref={id} onChange={e => this.handleInput(e, 'id')} placeholder="id"/>
-                </label>
-                <label htmlFor="name">
-                    <p>Hotel name</p>
-                    <input type="text" value={name} onChange={e => this.handleInput(e, 'name')} placeholder="name" />
-                </label>
-                <label htmlFor="adress">
-                    <p>adress</p>
-                    <input type="text" value={adress} onChange={e => this.handleInput(e, 'adress')} placeholder="adress"/>
-                </label>
-                <label htmlFor="phone">
-                    <p>phone</p>
-                    <input type="text"  autoComplete='tel' value={phone} onChange={e => this.handleInput(e, 'phone')} placeholder="phone"/>
-                </label>
-                <label htmlFor="email">
-                    <p>e-mail</p>
-                    <input type="e-mail" autoComplete='email' value={email} onChange={e => this.handleInput(e, 'email')} placeholder="email"/>
-                </label>
-                <label htmlFor="description">
-                    <p>description</p>
-                    <input type="text" value={description} maxLength={500} onChange={e => this.handleInput(e, 'description')} placeholder="description"/>
-                </label>
-                <label htmlFor="stars">
-                    <p>stars</p>
-                    <input type="text"  value={stars} onChange={e => this.handleInput(e, 'stars')} placeholder="stars"/>
-                </label>
-                <input type="submit" value="Submit"/>
-            </form>
+            <div>
+                <Form>
+                    <input
+                        value={this.state.id}
+                        onChange={value => this.setState({id: value})}
+                        placeholder="id"
+                    />
+
+                    <input
+                        value={this.state.name}
+                        onChange={value => this.setState({name: value})}
+                        placeholder="name"
+                    />
+
+                    <input
+                        value={this.state.adress}
+                        onChange={value => this.setState({adress: value})}
+                        placeholder="adress"
+                    />
+
+                    <input
+                        value={this.state.phone}
+                        onChange={value => this.setState({phone: value})}
+                        placeholder="phone"
+                    />
+
+                    <input
+                        value={this.state.email}
+                        onChange={value => this.setState({email: value})}
+                        placeholder="email"
+                    />
+
+                    <input
+                        value={this.state.description}
+                        onChange={value => this.setState({description: value})}
+                        placeholder="description"
+                    />
+
+                    <input
+                        value={this.state.stars}
+                        onChange={value => this.setState({stars: value})}
+                        placeholder="stars"
+                    />
+
+                </Form>
+                <Button onClick={() => this.procesData()}>
+                    <p>btn</p>
+                </Button>
+            </div>
         );
     }
 }

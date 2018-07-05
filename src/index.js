@@ -12,23 +12,23 @@ import List from './HotelsList';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import AddHotel from "./AddHotel";
 
+import Calculator from "./InputData";
 
 registerServiceWorker();
 
-    function App() {
-        // console.log(hotels[0])
-        return (
-            <div className="container">
-                <AddHotel/>
-                <List hotels={hotels}/>
-            </div>
-        )
-    }
+function App() {
+    // console.log(hotels[0])
+    return (
+        <div className="container">
+            <Calculator/>
+            <hr/>
+            {/*<AddHotel/>*/}
+            <List hotels={hotels}/>
+        </div>
+    )
+}
 
 ReactDOM.render(<App/>,document.getElementById("add"));
-ReactDOM.render(<App/>,document.getElementById("view"));
+//ReactDOM.render(<App/>,document.getElementById("view"));
 
 export default App
-
-
-
