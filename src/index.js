@@ -14,6 +14,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import Calculator from "./InputData";
 import Clock from "./Clock";
+ import BtnAction from "./BtnAction";
+import HideShowData from "./HideShowData";
 
 registerServiceWorker();
 
@@ -21,7 +23,13 @@ function App() {
     // console.log(hotels[0])
     return (
         <div className="container">
+            <hr/>
+            <HideShowData/>
+            <hr/>
+            <BtnAction/>
+            <hr/>
             <Clock/>
+            <hr/>
             <Calculator/>
             <hr/>
         </div>

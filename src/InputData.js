@@ -14,14 +14,32 @@ class DataInput extends Component {
 
     }
 
+    //COMPONENT LIFECYCLE
+    _log (methodName, args) {
+        console.log(methodName, args);
+    }
+    componentWillUpdate () {
+        this._log('componentWillUpdateINPUT', arguments);
+    }
+    componentDidUpdate() {
+        this._log('componentDidUpdateINPUT', arguments);
+    }
+    componentWillMount () {
+        this._log('componentWillMountINPUT', arguments);
+    }
+    componentDidMount() {
+        this._log('componentDidMountINPUT', arguments);
+    }
+    componentWillUnmount() {
+        this._log('componentWillUnmountINPUT', arguments);
+    }
+
+
     handleChange(e) {
         console.log(this.state);
         this.setState({data: e.target.value});
         console.log(this.state);
-        let a = this.state;
-        let b =  this.state;
-        let c = a+b;
-        console.log(c);
+
     }
 
     render() {
