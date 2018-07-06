@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 //import $ from 'jquery';
-import { Button, Form} from 'react-bootstrap';
+import {Button, Form} from 'react-bootstrap';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -23,9 +23,6 @@ class AddHotel extends Component {
         }
         console.log(this.state);
     };
-
-    // console.log(this.state.h);
-    //this.handleSubmit = this.handleSubmit.bind(this);
 
     procesData = () => {
         console.log(this.state.id)

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 import './index.css';
 
 import registerServiceWorker from './registerServiceWorker';
@@ -17,7 +16,6 @@ class HotelPost extends Component {
         }
     }
 
-
     onClick(e) {
         e.preventDefault();
         console.log("CLICKED");
@@ -27,7 +25,7 @@ class HotelPost extends Component {
     render() {
         const {hotel} = this.props;
         return (
-            <div className="card" >
+            <div className="card" style={{marginTop: 20, marginRight: 0, marginBottom: 20, marginLeft: 0}}>
                 <div className="card-header">
                     <h2 className="d-inline-block">{hotel.name}</h2>
                     <button type="button" className="btn btn-info pull-right d-inline-block"

@@ -31,7 +31,6 @@ function App() {
             <Clock/>
             <hr/>
             <Calculator/>
-            <hr/>
         </div>
     )
 }
