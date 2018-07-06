@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 
 
 import './index.css';
@@ -8,17 +8,31 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 registerServiceWorker();
 
-class HotelPost extends PureComponent {
-    // constructor(props) {
-    //     super(props);
-    // }
+class HotelPost extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            showData: true
+        }
+    }
+
+
+    onClick(e) {
+        e.preventDefault();
+        console.log("CLICKED");
+        this.setState({showData: !this.state.showData})
+    }
+
     render() {
         const {hotel} = this.props;
         return (
-            <div className="card">
+            <div className="card" >
                 <div className="card-header">
                     <h2 className="d-inline-block">{hotel.name}</h2>
-                    <button type="button" className="btn btn-info pull-right d-inline-block">Click</button>
+                    <button type="button" className="btn btn-info pull-right d-inline-block"
+                            onClick={this.onClick.bind(this)}>Click
+                    </button>
                     <button
                         className="btn btn-info pull-right d-inline-block"
                         onClick={() => {
@@ -26,12 +40,12 @@ class HotelPost extends PureComponent {
                         }}>
                         Show Index
                     </button>
-
-                    {/*onClick={show()}*/}
                 </div>
+                {this.state.showData &&
                 <div className="card-body">
                     <p>{hotel.description}</p>
                 </div>
+                }
             </div>
         )
     }
